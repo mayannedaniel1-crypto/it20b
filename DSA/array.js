@@ -21,7 +21,7 @@ class Array{
         console.log(output);
     }
 
-    insert(index, element){
+     insert(index, element){
         //Correcting Statement || Must be false
         if(index <0 || index > this.length){
             console.log("Invalid Index");
@@ -37,8 +37,8 @@ class Array{
         this.data[index] = element;
         this.length++;
     }
-}
-delete(index){
+
+    delete(index){
 
         //Correcting Statement || Must be false
         if(index <0 || index >= this.length){
@@ -56,13 +56,45 @@ delete(index){
         this.length--;
 
     }
+
+    update(index,element){
+        //Correcting Statement || Must be false
+        if(index <0 || index >= this.length){
+            console.log("Invalid Index");
+            return;
+        }
+
+        //After Condition
+        this.data[index] = element;
+    }
+
+    search(element){
+        //Must be true
+        for(let i=0; i< this.length;i++){
+            if(this.data[i] === element){
+                console.log(element + "  is found at index "+ i);
+                return i;
+            }
+        }
+
+        //False
+        console.log(element +" is not found at any index");
+        return -1;
+    }
+}
+
+
 //
 
-arr1 = new Array([4,2,3]);
 
 
+
+
+
 arr1.traverse();
-arr1.insert(0,9);
+
+arr1.update(2,5);
 arr1.traverse();
-arr1.delete(1);
-arr1.traverse();
+
+arr1.search(43);
+arr1.search(9);
